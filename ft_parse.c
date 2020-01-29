@@ -23,3 +23,12 @@ int     ft_parse_type(t_pfinfo *info, const char *format)
 {
     
 }
+
+int     ft_parse(t_pfinfo *info, const char *format)
+{
+    if (format[info.pos] == '%')
+		info.pos++;
+	pf_parse_flags(info, format);
+	pf_parse_size(info, format);
+	pf_parse_type(info, format);
+}
