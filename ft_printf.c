@@ -1,47 +1,69 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_printf.c                                      .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: arroznie <arroznie@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2020/01/19 22:35:00 by arroznie     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/29 05:15:25 by arroznie    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-void init_printf(s_pfinfo *info, const char *format)
+static	t_pfinfo	*ft_init(t_pfinfo *list, const char *format)
 {
-	info->pos = 0;
-	info->offset = 1;
-	info->format = format;
+	list->flags = 0;
+	list->width = 0;
+	list->precision = 0;
+	list->format = (char *)format;
+	list->pos = 0;
+	list->size = 0;
+	return (list);
 }
 
-void check_type(s_pfinfo *info)
+int			ft_printf(const char *format, ...)
 {
-	if (info->format[info->pos + info->offset] == 'c') {
-		char c = va_arg(info->va, int);
-		putchar(c);
-	}
-	else if (info->format[info->pos + info->offset] == '%') {
-		putchar('%');
-	}
-	info->pos++;
-}
+	t_pfinfo 	info;
 
-//void putchar(char c)
-//{
-//	write(1, &c, 1);
-//}
-
-int	ft_printf(const char *format, ...)
-{
-	s_pfinfo info;
-
-	init_printf(&info, format);
+	ft_init(&info, format);
 	va_start(info.va, format);
-	while (format[info.pos]) {
-		if (format[info.pos] == '%') {
-			check_type(&info);
-		} else {
-			putchar(format[info.pos]);
+	while (format[info.pos])
+	{
+		if (format[info.pos] == '%')
+		{
+			ft_parse(&info);
+			// convert
 		}
+		else
+			write(1, format[info.pos], 1);		
 		info.pos++;
 	}
+	return (info.pos);
 }
 
-int main()
-{
-	ft_printf("lol %c", 'p');
-	return(0);
-}
+/*
+**
+**
+** salut %50.5s mec, "salut"
+**
+** salut %50.5s mec,
+**
+** parser:
+**
+** while (is_flags) = '- || 0'
+** if (nombre ou *)
+** if (.)
+** 	pos++;
+** 	{
+** 		if (nombre ou *)
+** 	}
+** type = format[pos] == s
+** convertis = salut
+**%%
+**%10.5%
+**         %
+**
+*/
