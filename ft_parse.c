@@ -12,7 +12,7 @@ int     ft_parse_flags(t_pfinfo *info, const char *format)
 
 int     ft_parse_width(t_pfinfo *info, const char *format)
 {
-    if (ft_isdigit(format[info.pos] == 1))
+    if (ft_isdigit(format[info.pos]) == 1)
 
     else if (format[info.pos] == '*')
 
@@ -27,7 +27,19 @@ int     ft_parse_type(t_pfinfo *info, const char *format)
 int     ft_parse(t_pfinfo *info, const char *format)
 {
     if (format[info.pos] == '%')
+    {
 		info.pos++;
+        if (format[info.pos] == '%')
+        {
+            info.pos++;
+            while (format[info.pos] != '%')
+            {
+                write(1, format[info.pos], 1);
+                info.pos++;
+            }
+            return (ft_parse(info, format));
+        }
+    }
 	pf_parse_flags(info, format);
 	pf_parse_size(info, format);
 	pf_parse_type(info, format);
