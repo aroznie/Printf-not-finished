@@ -6,7 +6,7 @@
 /*   By: arroznie <arroznie@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/19 22:24:14 by arroznie     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/09 01:06:16 by arroznie    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/09 03:08:51 by arroznie    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,19 +24,13 @@ typedef	struct		s_pfinfo
 	int				pos;
 	va_list			va;
 	char			flags;
-	int				width;
-	int				precision;
 	int				size;
+	int				PF_ZERO;
+	int				PF_WIDTH;
+	int				PF_MINUS;
+	int				PF_PRECIS;
 	char			type;
 }					t_pfinfo;
-
-enum
-{
-	PF_MINUS = (1 << 0),
-	PF_ZERO = (1 << 1),
-	PF_WIDTH = (1 << 2),
-	PF_PRECIS = (1 << 3),
-};
 
 int     			ft_parse(t_pfinfo *info, const char *format);
 void				init_printf(t_pfinfo *info, const char *format);

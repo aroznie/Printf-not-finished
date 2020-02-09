@@ -6,7 +6,7 @@
 /*   By: arroznie <arroznie@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/19 22:35:00 by arroznie     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/02 02:28:32 by arroznie    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/09 03:08:52 by arroznie    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,11 +16,13 @@
 static	t_pfinfo	*ft_init(t_pfinfo *list, const char *format)
 {
 	list->flags = 0;
-	list->width = 0;
-	list->precision = 0;
+	list->PF_WIDTH = 0;
+	list->PF_PRECIS = 0;
 	list->format = (char *)format;
 	list->pos = 0;
 	list->size = 0;
+	list->PF_MINUS = 0;
+	list->PF_ZERO = 0;
 	return (list);
 }
 
@@ -34,8 +36,8 @@ int			ft_printf(const char *format, ...)
 	{
 		if (format[info.pos] == '%')
 		{
-			ft_parse(info, format);
-			ft_convert()
+			ft_parse(&info, format);
+			ft_convert();
 		}
 		else
 			write(1, format[info.pos], 1);		
