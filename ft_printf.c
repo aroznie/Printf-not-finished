@@ -6,7 +6,7 @@
 /*   By: arroznie <arroznie@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/19 22:35:00 by arroznie     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/02 02:21:48 by arroznie    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/02 02:28:32 by arroznie    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,7 +35,7 @@ int			ft_printf(const char *format, ...)
 		if (format[info.pos] == '%')
 		{
 			ft_parse(info, format);
-			// convert
+			ft_convert()
 		}
 		else
 			write(1, format[info.pos], 1);		

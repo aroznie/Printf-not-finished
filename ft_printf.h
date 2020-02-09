@@ -6,7 +6,7 @@
 /*   By: arroznie <arroznie@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/19 22:24:14 by arroznie     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/27 22:06:03 by arroznie    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/09 01:06:16 by arroznie    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,6 +26,7 @@ typedef	struct		s_pfinfo
 	char			flags;
 	int				width;
 	int				precision;
+	int				size;
 	char			type;
 }					t_pfinfo;
 
@@ -37,7 +38,7 @@ enum
 	PF_PRECIS = (1 << 3),
 };
 
-int     			ft_parse(t_pfinfo *info)
+int     			ft_parse(t_pfinfo *info, const char *format);
 void				init_printf(t_pfinfo *info, const char *format);
 int					ft_printf(const char *format, ...);
 
