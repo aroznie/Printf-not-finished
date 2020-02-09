@@ -6,7 +6,7 @@
 /*   By: arroznie <arroznie@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/19 22:24:14 by arroznie     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/09 03:08:51 by arroznie    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/09 03:27:32 by arroznie    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,6 +29,7 @@ typedef	struct		s_pfinfo
 	int				PF_WIDTH;
 	int				PF_MINUS;
 	int				PF_PRECIS;
+	int				precisize;
 	char			type;
 }					t_pfinfo;
 

@@ -33,7 +33,23 @@ int     ft_parse_width(t_pfinfo *info, const char *format)
 
 int     ft_parse_presic(t_pfinfo *info, const char *format)
 {
-    
+    if (format[info->pos] == '.' && info->PF_PRECIS == 0)
+	{
+		info->PF_PRECIS++;
+		info->pos++;
+	}
+	if ((ft_isdigit(format[info->pos])) == 1 && info->PF_PRECIS == 1)
+	{
+		info->precisize = ft_atoi(format + info->pos);
+		while (ft_isdigit(format[info->pos]) == 1)
+			info->pos++;
+	}
+	else if (format[info->pos] == '*' && info->PF_PRECIS == 1)
+	{
+		info->precisize = va_arg(info->va, int);
+		info->pos++;
+	}
+	return (0);
 }
 
 int     ft_parse(t_pfinfo *info, const char *format)

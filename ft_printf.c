@@ -6,7 +6,7 @@
 /*   By: arroznie <arroznie@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/19 22:35:00 by arroznie     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/09 03:08:52 by arroznie    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/09 03:27:29 by arroznie    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,7 @@ static	t_pfinfo	*ft_init(t_pfinfo *list, const char *format)
 	list->size = 0;
 	list->PF_MINUS = 0;
 	list->PF_ZERO = 0;
+	list->precisize = 0;
 	return (list);
 }
 
