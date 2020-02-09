@@ -4,10 +4,10 @@ int     ft_parse_flags(t_pfinfo *info, const char *format)
 {
     while (format[info->pos] == '0' || format[info->pos] == '-')
     {
-        if (format[info->pos] == '0' && PF_ZERO != 0)
-            enum->PF_ZERO++;
-        if (format[info->pos] == '-' && PF_ZERO != 0)
-            enum->PF_MINUS++;
+        if (format[info->pos] == '0' && info->PF_ZERO != 0)
+            info->PF_ZERO++;
+        if (format[info->pos] == '-' && info->PF_ZERO != 0)
+            info->PF_MINUS++;
         info->pos++;
     }
     return (0);
@@ -17,21 +17,21 @@ int     ft_parse_width(t_pfinfo *info, const char *format)
 {
     if (ft_isdigit(format[info->pos]) == 1)
     {
-        enum->PF_WIDTH++;
+        info->PF_WIDTH++;
 		info->size = ft_atoi(format + info->pos);
 		while (ft_isdigit(format[info->pos]) == 1)
 			info->pos++;
     }
     else if (format[info->pos] == '*')
     {
-        enum->PF_WIDTH++;
+        info->PF_WIDTH++;
 		info->size = va_arg(info->va, int);
 		info->pos++;
     }
     return (0);
 }
 
-int     ft_parse_type(t_pfinfo *info, const char *format)
+int     ft_parse_presic(t_pfinfo *info, const char *format)
 {
     
 }
