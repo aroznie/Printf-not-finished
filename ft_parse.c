@@ -73,4 +73,5 @@ int     ft_parse(t_pfinfo *info, const char *format)
 	pf_parse_width(info, format);
     pf_parse_pres(info, format);
 	pf_parse_type(info, format);
+    return (0);
 }
