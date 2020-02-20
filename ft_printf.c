@@ -24,6 +24,7 @@ static	t_pfinfo	*ft_init(t_pfinfo *list, const char *format)
 	list->PF_MINUS = 0;
 	list->PF_ZERO = 0;
 	list->precisize = 0;
+	list->type = 0;
 	return (list);
 }
 
@@ -38,7 +39,7 @@ int			ft_printf(const char *format, ...)
 		if (format[info.pos] == '%')
 		{
 			ft_parse(&info, format);
-			ft_convert();
+			ft_convert(&info);
 		}
 		else
 			write(1, format[info.pos], 1);		
@@ -65,8 +66,8 @@ int			ft_printf(const char *format, ...)
 ** 	}
 ** type = format[pos] == s
 ** convertis = salut
-**%%
-**%10.5%
-**         %
+**%%yffhcgfc%
+**%10.5
+**
 **
 */

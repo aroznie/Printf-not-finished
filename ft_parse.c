@@ -52,23 +52,20 @@ int     ft_parse_presic(t_pfinfo *info, const char *format)
 	return (0);
 }
 
+void    ft_parse_typeieuvipubrvui
+
+if format pos mes couilles == c s x d u i X
+    type = pos
+
 int     ft_parse(t_pfinfo *info, const char *format)
 {
+	info->pos++;
     if (format[info->pos] == '%')
     {
-		info->pos++;
-        if (format[info->pos] == '%')
-        {
-            write(1, format[info->pos], 1);
-            info->pos++;
-            while (format[info->pos] != '%')
-            {
-                write(1, format[info->pos], 1);
-                info->pos++;
-            }
-            return (ft_parse(info, format));
-        }
+        write(1, format[info->pos], 1);
+        return 0;
     }
+    ft_init(&info, format);
 	pf_parse_flags(info, format);
 	pf_parse_width(info, format);
     pf_parse_pres(info, format);
