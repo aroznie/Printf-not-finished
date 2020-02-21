@@ -36,5 +36,6 @@ typedef	struct		s_pfinfo
 int     			ft_parse(t_pfinfo *info, const char *format);
 void				init_printf(t_pfinfo *info, const char *format);
 int					ft_printf(const char *format, ...);
+void    			ft_parse_type(t_pfinfo *info, const char *format);
 
 #endif

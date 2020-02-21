@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int     ft_parse_flags(t_pfinfo *info, const char *format)
+int     pf_parse_flags(t_pfinfo *info, const char *format)
 {
     while (format[info->pos] == '0' || format[info->pos] == '-')
     {
@@ -13,7 +13,7 @@ int     ft_parse_flags(t_pfinfo *info, const char *format)
     return (0);
 }
 
-int     ft_parse_width(t_pfinfo *info, const char *format)
+int     pf_parse_width(t_pfinfo *info, const char *format)
 {
     if (ft_isdigit(format[info->pos]) == 1)
     {
@@ -31,7 +31,7 @@ int     ft_parse_width(t_pfinfo *info, const char *format)
     return (0);
 }
 
-int     ft_parse_presic(t_pfinfo *info, const char *format)
+int     pf_parse_presic(t_pfinfo *info, const char *format)
 {
     if (format[info->pos] == '.' && info->PF_PRECIS == 0)
 	{
@@ -52,10 +52,14 @@ int     ft_parse_presic(t_pfinfo *info, const char *format)
 	return (0);
 }
 
-void    ft_parse_typeieuvipubrvui
-
-if format pos mes couilles == c s x d u i X
-    type = pos
+void    pf_parse_type(t_pfinfo *info, const char *format)
+{
+    if (format[info->pos] == 'c' || format[info->pos] == 's' ||
+        format[info->pos] == 'd' || format[info->pos] == 'u' ||
+        format[info->pos] == 'i' || format[info->pos] == 'x' ||
+        format[info->pos] == 'X')
+        info->type = format[info->pos];
+}
 
 int     ft_parse(t_pfinfo *info, const char *format)
 {
@@ -63,7 +67,7 @@ int     ft_parse(t_pfinfo *info, const char *format)
     if (format[info->pos] == '%')
     {
         write(1, format[info->pos], 1);
-        return 0;
+        return (0);
     }
     ft_init(&info, format);
 	pf_parse_flags(info, format);
