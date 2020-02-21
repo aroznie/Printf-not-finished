@@ -2,7 +2,9 @@
 
 void    ft_convert(t_pfinfo *info, const char *format)
 {
-    if (format[info->pos] == 'c')
+    if (format[info->pos] == '%')
+        ft_convert_c();
+    else if (format[info->pos] == 'c')
         ft_convert_c();
     else if (format[info->pos] == 's')
         ft_convert_s();

@@ -57,7 +57,7 @@ void    pf_parse_type(t_pfinfo *info, const char *format)
     if (format[info->pos] == 'c' || format[info->pos] == 's' ||
         format[info->pos] == 'd' || format[info->pos] == 'u' ||
         format[info->pos] == 'i' || format[info->pos] == 'x' ||
-        format[info->pos] == 'X')
+        format[info->pos] == 'X' || format[info->pos] == '%')
         info->type = format[info->pos];
 }
 
@@ -69,7 +69,7 @@ int     ft_parse(t_pfinfo *info, const char *format)
         write(1, format[info->pos], 1);
         return (0);
     }
-    ft_init(&info, format);
+    ft_init(&info, format); // pos reset ?
 	pf_parse_flags(info, format);
 	pf_parse_width(info, format);
     pf_parse_pres(info, format);
