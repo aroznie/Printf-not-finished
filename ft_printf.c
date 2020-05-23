@@ -68,6 +68,6 @@ int			ft_printf(const char *format, ...)
 ** convertis = salut
 **%%yffhcgfc%
 **%10.5
-**
-**
+**Attention a init pos ?
+**creer strjoinfree
 */

@@ -4,9 +4,9 @@ int     pf_parse_flags(t_pfinfo *info, const char *format)
 {
     while (format[info->pos] == '0' || format[info->pos] == '-')
     {
-        if (format[info->pos] == '0' && info->PF_ZERO != 0)
+        if (format[info->pos] == '0' && info->PF_ZERO == 0)
             info->PF_ZERO++;
-        if (format[info->pos] == '-' && info->PF_ZERO != 0)
+        if (format[info->pos] == '-' && info->PF_ZERO == 0)
             info->PF_MINUS++;
         info->pos++;
     }
